@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 public class Main {
+    // USE INFO
     public static void main(String[] args) {
         System.out.println("""
                 \nThis program will parse date of birth, surname, name, and patronymic into initials and age.
@@ -13,9 +14,11 @@ public class Main {
             System.out.println("\u001B[36mDate of birth format: dd.mm.yyyy\u001B[0m");
 
             try {
+                // EXIT
                 String input = in.nextLine();
                 if (input.equals("q")) System.exit(0);
 
+                // ANALYSIS
                 Person newPerson = new Person(input);
                 newPerson.print();
             } catch (RuntimeException e) {

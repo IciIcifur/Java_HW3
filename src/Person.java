@@ -4,10 +4,10 @@ public class Person {
     private final String name;
     private final String patronymic;
     private final String surname;
-    private final String birthDate;
+    private final String birthDate; // stores initial data
 
     int age;
-    String gender = "male";
+    String gender = "male"; // default gender
     String shortenedName;
 
     Person(String input) {
@@ -44,12 +44,10 @@ public class Person {
 
             age = currentDate.getYear() - year;
 
-            if (month > currentDate.getMonthValue()) {
-                age -= 1;
-            } else if (month == currentDate.getMonthValue() && day > currentDate.getDayOfMonth()) {
+            if (month > currentDate.getMonthValue() || (month == currentDate.getMonthValue() && day > currentDate.getDayOfMonth())) {
                 age -= 1;
             }
-            if (age > 150) {
+            if (age > 150) { // humans don't live so long
                 throw new RuntimeException();
             }
 
@@ -59,6 +57,7 @@ public class Person {
     }
 
     private void defineGender() {
+        // default russian surname and patronymic endings
         String[] femaleSurnameEndings = {"ева", "ёва", "ова", "ина", "ына", "ая"};
         String[] femalePatronymicEndings = {"овна", "евна", "ична", "инична"};
 
